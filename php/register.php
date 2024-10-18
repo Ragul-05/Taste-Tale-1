@@ -1,32 +1,22 @@
 <?php
-// Connect to database
 $conn = new mysqli('localhost', 'your_username', 'your_password', 'taste_tales');
-
-// Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-
-// Handle registration
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Hash the password
-
-    // Prepare SQL statement
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
     $stmt = $conn->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
     $stmt->bind_param("ss", $username, $password);
-
     if ($stmt->execute()) {
         echo "Registration successful. You can now <a href='login.php'>login</a>.";
     } else {
         echo "Error: " . $stmt->error;
     }
-
     $stmt->close();
 }
 $conn->close();
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

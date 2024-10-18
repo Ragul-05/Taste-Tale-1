@@ -61,8 +61,6 @@
 
     <!-- Search Bar Section -->
     <!-- Search Bar Section -->
-    <!-- Search Bar Section -->
-    <!-- Search Bar Section -->
     <section class="container my-4">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -73,6 +71,9 @@
             </div>
             <div class="col-md-2">
                 <button class="btn btn-primary w-100" id="search-button">Search</button>
+            </div>
+            <div>
+                <a href="add_recipe.php" class="btn btn-primary">Add Recipe</a>
             </div>
         </div>
     </section>
